@@ -1,0 +1,168 @@
+$default-margin-size: 16px;
+$double-margin-size: $default-margin-size * 2;
+$half-margin-size: $default-margin-size / 2;
+$fourth-margin-size: $default-margin-size / 4;
+
+
+.margins {
+    margin: $default-margin-size !important;
+}
+
+.margin-sides {
+    margin-left: $default-margin-size !important;
+    margin-right: $default-margin-size !important;
+}
+
+.margin-top {
+    margin-top: $default-margin-size !important;
+}
+
+.margin-bottom {
+    margin-bottom: $default-margin-size !important;
+}
+
+.margin-left {
+    margin-left: $default-margin-size !important;
+}
+
+.margin-right {
+    margin-right: $default-margin-size !important;
+}
+
+.margin-top-double {
+    margin-top: $double-margin-size !important;
+}
+
+.margin-bottom-double {
+    margin-bottom: $double-margin-size !important;
+}
+
+.margin-left-double {
+    margin-left: $double-margin-size !important;
+}
+
+.margin-right-double {
+    margin-right: $double-margin-size !important;
+}
+
+.margins-half {
+  margin: $half-margin-size !important;
+}
+
+.margin-sides-half {
+    margin-left: $half-margin-size !important;
+    margin-right: $half-margin-size !important;
+}
+
+.margin-top-half {
+    margin-top: $half-margin-size !important;
+}
+
+.margin-bottom-half {
+    margin-bottom: $half-margin-size !important;
+}
+
+.margin-left-half {
+    margin-left: $half-margin-size !important;
+}
+
+.margin-right-half {
+    margin-right: $half-margin-size !important;
+}
+
+.margins-fourth {
+  margin: $fourth-margin-size !important;
+}
+
+.margin-sides-fourth {
+    margin-left: $fourth-margin-size !important;
+    margin-right: $fourth-margin-size !important;
+}
+
+.margin-top-fourth {
+    margin-top: $fourth-margin-size !important;
+}
+
+.margin-bottom-fourth {
+    margin-bottom: $fourth-margin-size !important;
+}
+
+.margin-left-fourth {
+    margin-left: $fourth-margin-size !important;
+}
+
+.margin-right-fourth {
+    margin-right: $fourth-margin-size !important;
+}
+
+.margins-clear {
+    margin: 0;
+}
+
+.margin-top-none {
+    margin-top: 0;
+}
+
+.margin-bottom-none {
+    margin-bottom: 0;
+}
+
+.margin-left-none {
+    margin-left: 0;
+}
+
+.margin-right-none {
+    margin-right: 0;
+}
+
+.max-width-100 {
+    max-width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.display-block {
+    display: block;
+}
+
+.overflow-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.component {
+    display: block;
+}
+
+
+// Flexbox
+
+@mixin flex($value: 1) {
+  flex: $value;
+
+  // A hack for Chrome browser to properly calculate flex element sizes
+  min-width: 0;
+  min-height: 0;
+}
+
+.flex {
+    @include flex();
+}
+
+.flex-2 {
+    @include flex(2);
+}
+
+.flex-3 {
+    @include flex(3);
+}
+
+.flex-no-resize {
+    flex: 0 0 auto;
+
+    // A hack for Chrome browser to properly calculate flex element sizes
+    min-width: 0;
+    min-height: 0;
+}
