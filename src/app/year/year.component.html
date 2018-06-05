@@ -1,3 +1,7 @@
-<p>
-  year works!
-</p>
+<h1>{{year}}</h1>
+
+<month
+  *ngFor="let month of months"
+  [month]="month"
+  [year]="year"
+></month>
