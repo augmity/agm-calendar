@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "scss/layout.scss";
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
 // html, body {
 //   height: 100%;

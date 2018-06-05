@@ -1,0 +1,10 @@
+<div class="day">{{day}}</div>
+<div>{{dayName}}</div>
+
+<div class="event-bars" [title]="tooltipText">
+  <div
+    class="event-bar"
+    *ngFor="let event of visibleEvents"
+    [ngStyle]="{ 'background-color': event.color }"
+  ></div>
+</div>

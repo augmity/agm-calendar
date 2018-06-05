@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+  padding: 4px 8px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.event-bars {
+  width: 100%;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.event-bar {
+  width: 100%;
+  height: 5px;
+}

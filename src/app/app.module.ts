@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from './shared';
 
 import { AppComponent } from './app.component';
+import { DayComponent } from './day/day.component';
+import { MonthComponent } from './month/month.component';
+import { YearComponent } from './year/year.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -14,7 +18,11 @@ import { AppComponent } from './app.component';
     SharedModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    DayComponent,
+    MonthComponent,
+    YearComponent,
+    SettingsComponent
   ],
   bootstrap: [
     AppComponent
