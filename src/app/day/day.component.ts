@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import * as moment from 'moment';
 import { map } from 'rxjs/operators';
 
@@ -18,6 +18,7 @@ export class DayComponent implements OnInit {
   @Input() month: number;
   @Input() year: number;
   @Input() date: Date;
+  @HostBinding('className') dayNameLowerCase: string;
   momentDate: moment.Moment;
   dayName: string;
   tooltipText: string;
@@ -31,6 +32,7 @@ export class DayComponent implements OnInit {
     // Heads-up: the month value is zero-based (so January === 0)
     this.momentDate = moment({ year: this.year, month: this.month - 1, day: this.day });
     this.dayName = this.momentDate.format('dddd');
+    this.dayNameLowerCase = this.dayName.toLowerCase();
 
     this.eventsService.source
       .pipe(

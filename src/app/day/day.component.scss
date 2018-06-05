@@ -1,6 +1,6 @@
 :host {
   display: inline-flex;
-  padding: 4px 8px;
+  padding: 4px 0;
   flex-direction: column;
   align-items: center;
 }
@@ -8,6 +8,12 @@
 .day {
   font-size: 24px;
   font-weight: 600;
+  color: #333;
+}
+
+.day,
+.day-name {
+  padding: 0 8px;
 }
 
 .event-bars {
