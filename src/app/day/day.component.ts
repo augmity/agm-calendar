@@ -2,7 +2,7 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
 import * as moment from 'moment';
 import { map } from 'rxjs/operators';
 
-import { EventsService } from '../events.service';
+import { CalendarService } from '../calendar.service';
 import { CalendarEvent } from '../models';
 
 
@@ -26,7 +26,7 @@ export class DayComponent implements OnInit {
   hiddenCalendars: string[];
   visibleEvents: CalendarEvent[];
 
-  constructor(private eventsService: EventsService) {}
+  constructor(private calendarService: CalendarService) {}
 
   ngOnInit() {
     // Heads-up: the month value is zero-based (so January === 0)
@@ -34,7 +34,7 @@ export class DayComponent implements OnInit {
     this.dayName = this.momentDate.format('dddd');
     this.dayNameLowerCase = this.dayName.toLowerCase();
 
-    this.eventsService.source
+    this.calendarService.events
       .pipe(
         // Get only the events that we are interested in
         map(items => {

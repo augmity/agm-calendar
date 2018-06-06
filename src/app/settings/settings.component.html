@@ -1,3 +1,9 @@
-<p>
-  settings works!
-</p>
+<!-- <h3>Calendars</h3> -->
+
+<mat-checkbox
+  *ngFor="let calendar of calendarService.calendars | async"
+  [checked]="true"
+  (change)="calendarService.setCalendarVisibility(calendar.id, $event.checked)"
+>
+  {{calendar.name}}
+</mat-checkbox>

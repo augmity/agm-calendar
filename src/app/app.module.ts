@@ -9,6 +9,7 @@ import { DayComponent } from './day/day.component';
 import { MonthComponent } from './month/month.component';
 import { YearComponent } from './year/year.component';
 import { SettingsComponent } from './settings/settings.component';
+import { YearSelectorComponent } from './year-selector/year-selector.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SettingsComponent } from './settings/settings.component';
     DayComponent,
     MonthComponent,
     YearComponent,
-    SettingsComponent
+    SettingsComponent,
+    YearSelectorComponent
   ],
   bootstrap: [
     AppComponent
