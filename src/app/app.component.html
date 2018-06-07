@@ -1,7 +1,5 @@
 <mat-toolbar class="mat-elevation-z6" color="primary">
   <span class="margin-right-double">agm-calendar</span>
-  <!-- <year-selector></year-selector> -->
-
   <span class="flex-spacer"></span>
   <mat-icon class="clickable" (click)="sidebarVisible = !sidebarVisible">settings</mat-icon>
 </mat-toolbar>
@@ -11,6 +9,6 @@
     <calendar-settings></calendar-settings>
   </mat-sidenav>
   <section>
-    <year [year]="2018" [futureOnly]="false"></year>
+    <year [year]="2018" [futureOnly]="settingsService.futureOnly"></year>
   </section>
 </mat-sidenav-container>

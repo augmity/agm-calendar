@@ -1,9 +1,16 @@
-<!-- <h3>Calendars</h3> -->
+<h3>Calendars</h3>
+<div class="section">
+  <mat-checkbox
+    *ngFor="let calendar of calendarService.calendars | async"
+    [checked]="true"
+    (change)="calendarService.setCalendarVisibility(calendar.id, $event.checked)"
+  >
+    {{calendar.name}}
+  </mat-checkbox>
+</div>
 
-<mat-checkbox
-  *ngFor="let calendar of calendarService.calendars | async"
-  [checked]="true"
-  (change)="calendarService.setCalendarVisibility(calendar.id, $event.checked)"
->
-  {{calendar.name}}
-</mat-checkbox>
+<h3>Year</h3>
+<div class="section">
+  <year-selector class="component margin-bottom"></year-selector>
+  <mat-checkbox [(checked)]="settingsService.futureOnly">Show only future months</mat-checkbox>
+</div>

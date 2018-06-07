@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { CalendarService } from '../calendar.service';
+import { SettingsService } from '../settings.service';
 
 
 @Component({
@@ -8,11 +9,7 @@ import { CalendarService } from '../calendar.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent {
 
-  constructor(public calendarService: CalendarService) { }
-
-  ngOnInit() {
-  }
-
+  constructor(public calendarService: CalendarService, public settingsService: SettingsService) {}
 }

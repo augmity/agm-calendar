@@ -1,3 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+mat-sidenav-container {
+  flex: 1;
+}
+
+::ng-deep {
+  mat-sidenav {
+    height: 100%;
+    padding: 8px 16px;
+  }
+}
+
 .flex-spacer {
   flex: 1 1 auto;
 }

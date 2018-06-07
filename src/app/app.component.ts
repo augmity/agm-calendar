@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './settings.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   sidebarVisible = false;
+
+  constructor(public settingsService: SettingsService) {}
 }
