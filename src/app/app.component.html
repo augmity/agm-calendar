@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6" color="primary">
+<!-- <mat-toolbar class="mat-elevation-z6" color="primary">
   <span class="margin-right-double">agm-calendar</span>
   <span class="flex-spacer"></span>
   <mat-icon class="clickable" (click)="sidebarVisible = !sidebarVisible">settings</mat-icon>
@@ -11,4 +11,33 @@
   <section>
     <year [year]="2018" [futureOnly]="settingsService.futureOnly"></year>
   </section>
-</mat-sidenav-container>
+</mat-sidenav-container> -->
+
+<p>isLoggedIn: {{isLoggedIn}}</p>
+<button *ngIf='!isLoggedIn' (click)="signIn()">sign in</button>
+
+<div *ngIf='isLoggedIn'> 
+
+  <button (click)="load()">test</button>
+
+  <!-- <p *ngIf='!sheet'>
+    <button  (click)=create()>Create empty sheet</button>
+  </p>
+
+  <p *ngIf='sheet'>
+      <span>sheetId {{sheet.spreadsheetId}}</span>
+  </p>
+
+  <p>
+    <label>Spreadsheet id</label>
+    <input type="text" [(ngModel)]=sheetId />
+    <button (click)="findSheet()">fetch spreadsheet</button>
+  </p>
+
+  <p *ngIf="foundSheet">
+    <code>
+    {{foundSheet | json}}
+    </code>
+  </p>  -->
+  
+</div>
