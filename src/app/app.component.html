@@ -13,12 +13,13 @@
   </section>
 </mat-sidenav-container> -->
 
+<p>user: {{user | json}}</p>
+<button *ngIf='isLoggedIn' (click)="signOut()">sign out</button>
+
 <p>isLoggedIn: {{isLoggedIn}}</p>
 <button *ngIf='!isLoggedIn' (click)="signIn()">sign in</button>
 
-<div *ngIf='isLoggedIn'> 
-
-  <button (click)="load()">test</button>
+<div *ngIf='isLoggedIn'>
 
   <!-- <p *ngIf='!sheet'>
     <button  (click)=create()>Create empty sheet</button>
