@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-import { map } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import { map, mergeAll, mergeMap } from 'rxjs/operators';
 import { GoogleApiService } from 'ng-gapi';
 
 import { AuthService } from './auth.service';
@@ -121,14 +122,14 @@ export class CalendarService {
 
   private loadEvents() {
     const calendars = [
-      '86irpg9cud4qq81kqq7rgoh67c@group.calendar.google.com',
+      { id: '86irpg9cud4qq81kqq7rgoh67c@group.calendar.google.com', color: '#fa573c' },
+      { id: 'tdvqkp960stq38h1fq5os8c7ds@group.calendar.google.com', color: '#fad165' }
     ];
-    const calendarId = 'tdvqkp960stq38h1fq5os8c7ds@group.calendar.google.com';
 
-    const calendarColor = '#f00';
-    this.getCalendarEvents(calendarId)
+    of(calendars)
       .pipe(
-        map(data => data.map(item => Object.assign(item, { calendarId: calendarId, color: calendarColor })))
+        mergeAll(),
+        mergeMap(calendar => this.getCalendarEvents(calendar.id, calendar.color))
       )
       .subscribe(events => {
         console.log('events', events);
@@ -137,7 +138,7 @@ export class CalendarService {
       });
   }
 
-  private getCalendarEvents(calendarId: string): Observable<CalendarEvent[]> {
+  private getCalendarEvents(calendarId: string, calendarColor: string): Observable<CalendarEvent[]> {
     const uri = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`;
     const requestOptions = { headers: new HttpHeaders({ Authorization: `Bearer ${this.token}` }) };
     return this.httpClient
@@ -147,6 +148,8 @@ export class CalendarService {
           if (data && data.items) {
             return data.items.map(item => {
               return {
+                calendarId: calendarId,
+                color: calendarColor,
                 from: new Date(item.start.date || item.start.dateTime),
                 to: new Date(item.end.date || item.end.dateTime),
                 name: item.summary
