@@ -16,10 +16,6 @@ export class AppComponent {
   user: GoogleUser;
   sidebarVisible = false;
 
-  get isLoggedIn(): boolean {
-    return (this.authService) ? this.authService.isUserSignedIn() : false;
-  }
-
   constructor(public settingsService: SettingsService, private calendarService: CalendarService, private authService: AuthService) {
     this.authService.user$.subscribe(user => this.user = user);
   }

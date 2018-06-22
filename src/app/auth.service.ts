@@ -12,20 +12,40 @@ export class AuthService {
 
   readonly SESSION_STORAGE_KEY: string = 'accessToken';
   private userSubject = new BehaviorSubject<GoogleUser>(null);
-  private user: GoogleUser;
+  private tokenSubject = new BehaviorSubject<string>(null);
   private auth: GoogleAuth;
+  private _user: GoogleUser;
 
   user$ = this.userSubject.asObservable();
+  token$ = this.tokenSubject.asObservable();
+
+  get user(): GoogleUser {
+    return this._user;
+  }
+  set user(value: GoogleUser) {
+    this._user = value;
+
+    if (value) {
+      const token = value.getAuthResponse().access_token;
+      sessionStorage.setItem(this.SESSION_STORAGE_KEY, token);
+      this.userSubject.next(value);
+      this.tokenSubject.next(token);
+    } else {
+      sessionStorage.removeItem(this.SESSION_STORAGE_KEY);
+      this.userSubject.next(null);
+      this.tokenSubject.next(null);
+    }
+  }
 
   constructor(private googleAuthService: GoogleAuthService) {
     this.googleAuthService.getAuth()
       .subscribe((auth) => {
         this.auth = auth;
         if (this.auth.isSignedIn) {
-          this.user = this.auth.currentUser.get();
+          const user = this.auth.currentUser.get();
           // Because change detection needs a milisecond
           setTimeout(() => {
-            this.userSubject.next(this.user);
+            this.user = user;
           }, 1);
         }
       });
@@ -45,13 +65,8 @@ export class AuthService {
 
   signOut(): void {
     if (this.auth) {
-      try {
-        this.auth.signOut();
-        sessionStorage.removeItem(this.SESSION_STORAGE_KEY);
-        this.userSubject.next(null);
-      } catch (e) {
-        console.error(e);
-      }
+      this.auth.signOut();
+      this.user = null;
     }
   }
 
@@ -62,8 +77,6 @@ export class AuthService {
 
   private signInSuccessHandler(user: GoogleUser) {
     this.user = user;
-    this.userSubject.next(user);
-    sessionStorage.setItem(this.SESSION_STORAGE_KEY, user.getAuthResponse().access_token);
   }
 
   private signInErrorHandler(err) {
