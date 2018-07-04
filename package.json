@@ -14,7 +14,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.3",
-    "@angular/cdk": "^6.2.0",
+    "@angular/cdk": "^6.3.2",
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
     "@angular/core": "^6.0.2",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
     "@angular/router": "^6.0.2",
+    "@ncstate/sat-popover": "^2.1.1",
     "core-js": "^2.5.4",
     "moment": "^2.22.2",
     "ng-gapi": "0.0.51",

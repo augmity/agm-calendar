@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleApiModule, NgGapiClientConfig, NG_GAPI_CONFIG } from 'ng-gapi';
+import { SatPopoverModule } from '@ncstate/sat-popover';
 
 import { SharedModule } from './shared';
 
@@ -31,6 +32,7 @@ const gapiClientConfig: NgGapiClientConfig = {
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig
     }),
+    SatPopoverModule,
     SharedModule
   ],
   declarations: [

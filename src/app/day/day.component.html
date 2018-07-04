@@ -1,10 +1,14 @@
 <div class="day">{{day}}</div>
 <div class="day-name">{{dayName}}</div>
 
-<div class="event-bars" [title]="tooltipText">
+<div class="event-bars" [title]="tooltipText" [satPopoverAnchorFor]="popover" (click)="popover.toggle()">
   <div
     class="event-bar"
     *ngFor="let event of visibleEvents"
     [ngStyle]="{ 'background-color': event.color }"
   ></div>
 </div>
+
+<sat-popover #popover>
+  Details: {{tooltipText}}
+</sat-popover>
