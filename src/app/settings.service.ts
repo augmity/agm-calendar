@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class SettingsService {
 
+  year = 2019;
   futureOnly = false;
 }

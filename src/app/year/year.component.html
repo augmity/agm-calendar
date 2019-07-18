@@ -1,7 +1,7 @@
 <h1>{{year}}</h1>
 
 <month
-  *ngFor="let month of months"
-  [month]="month"
-  [year]="year"
+  *ngFor="let item of items; trackBy:trackByUid"
+  [month]="item.month"
+  [year]="item.year"
 ></month>

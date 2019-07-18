@@ -1,4 +1,4 @@
-<!-- <mat-toolbar class="mat-elevation-z6" color="primary">
+<mat-toolbar class="mat-elevation-z6" color="primary">
   <span class="margin-right-double">agm-calendar</span>
   <span class="flex-spacer"></span>
   <mat-icon class="clickable" (click)="sidebarVisible = !sidebarVisible">settings</mat-icon>
@@ -9,10 +9,10 @@
     <calendar-settings></calendar-settings>
   </mat-sidenav>
   <section>
-    <year [year]="2018" [futureOnly]="settingsService.futureOnly"></year>
+    <year [year]="settingsService.year" [futureOnly]="settingsService.futureOnly"></year>
   </section>
-</mat-sidenav-container> -->
+</mat-sidenav-container>
 
-<p>user: {{user | json}}</p>
+<!-- <p>user: {{user | json}}</p> -->
 <button *ngIf="user" (click)="signOut()">sign out</button>
 <button *ngIf='!user' (click)="signIn()">sign in</button>

@@ -16,11 +16,10 @@ const YEAR_SELECTOR_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./year-selector.component.scss'],
   providers: [YEAR_SELECTOR_CONTROL_VALUE_ACCESSOR],
 })
-export class YearSelectorComponent implements OnInit {
+export class YearSelectorComponent implements OnInit, ControlValueAccessor {
 
   @Input() disabled = false;
   @Input() yearsBeforeAfter = 2;
-  years: number[];
   @Input()
     get selectedYear(): number {
       return this._selectedYear;
@@ -32,12 +31,14 @@ export class YearSelectorComponent implements OnInit {
       }
     }
 
+  years: number[];
+
   private _selectedYear: number;
+
   // Placeholders for the callbacks
   private onTouchedCallback: (_: any) => void;
   private onChangeCallback: (_: any) => void;
 
-  constructor() { }
 
   ngOnInit() {
     this._selectedYear = moment().year();
@@ -65,5 +66,4 @@ export class YearSelectorComponent implements OnInit {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-
 }

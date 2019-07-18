@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleApiModule, NgGapiClientConfig, NG_GAPI_CONFIG } from 'ng-gapi';
 import { SatPopoverModule } from '@ncstate/sat-popover';
@@ -27,6 +29,8 @@ const gapiClientConfig: NgGapiClientConfig = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
     HttpClientModule,
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,

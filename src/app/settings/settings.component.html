@@ -11,6 +11,6 @@
 
 <h3>Year</h3>
 <div class="section">
-  <year-selector class="component margin-bottom"></year-selector>
-  <mat-checkbox [(checked)]="settingsService.futureOnly">Show only future months</mat-checkbox>
+  <year-selector class="component margin-bottom" [(ngModel)]="settingsService.year"></year-selector>
+  <mat-checkbox [(ngModel)]="settingsService.futureOnly">Show only future months</mat-checkbox>
 </div>

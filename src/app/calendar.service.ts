@@ -24,7 +24,7 @@ export class CalendarService {
   private cachedEvents: CalendarEvent[];
   events = this.eventsSubject.asObservable();
   calendars = this.calendarsSubject.asObservable();
-  visibleCalendars = this.visibleCalendars.asObservable();
+  visibleCalendars = this.visibleCalendarsSubject.asObservable();
 
   constructor(private gapiService: GoogleApiService, private httpClient: HttpClient, private authService: AuthService) {
     combineLatest(
